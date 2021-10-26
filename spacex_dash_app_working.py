@@ -78,7 +78,7 @@ def get_pie(value):
     else:
         filtered_df = spacex_df[spacex_df['Launch Site'] == value].groupby(['Launch Site', 'class']). \
         size().reset_index(name='class count')
-        title = f"Total Success Launches for site {value}"
+        title = ("Total Success Launches for site "+value)
         fig = px.pie(filtered_df,values='class count', names='class', title=title)
         return fig
 
@@ -99,7 +99,7 @@ def get_scatter(value1,value2):
     else :
         filtered_df2_2=filtered_df2_1[filtered_df2_1['Launch Site']==value1]
         fig= px.scatter(filtered_df2_2,x="Payload Mass (kg)",y="class",color="Booster Version Category",\
-        title=f"Correlation between Payload and Success for site {value1}")
+        title=("Correlation between Payload and Success for site " +value1))
         return fig
 # Run the app
 if __name__ == '__main__':
